@@ -1,0 +1,286 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    background: url(fondo.jpg) no-repeat center center fixed;
+    background-size: cover;
+    overflow-x: hidden; /* Evitar scroll horizontal */
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(255, 0, 0, 0.5);
+    background: rgba(54, 53, 50, 1);
+    border-bottom: 2px solid #ff0000;
+}
+
+.b-color {
+    color: #ff0000;
+}
+
+.bg-menu {
+    background: rgba(54, 53, 50, 1);
+}
+
+#logo {
+    width: 100px; /* Tamaño más pequeño */
+    height: auto;
+}
+
+.welcome-message {
+    text-align: left;
+    color: #ff0000;
+}
+
+.nav-link {
+    margin: 0 10px;
+    color: #ff0000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #fff;
+}
+
+#cartButton {
+    position: relative;
+    color: #ff0000;
+    border: 2px solid #ff0000;
+    border-radius: 5px;
+    padding: 10px 15px;
+    background: transparent;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#cartButton:hover {
+    background-color: #ff0000;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+#cartCount {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.modal-body {
+    text-align: center;
+    font-size: 18px;
+    background-color: #222;
+    color: #fff;
+}
+
+/*------------CSS Card--------------*/
+
+.cont-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    padding: 20px;
+    margin-top: 60px; /* Separar más del nav bar */
+    min-height: calc(100vh - 60px); /* Asegurar altura mínima para permitir scroll */
+}
+
+.containerC {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+    background-color: #000;
+    border: 2px solid #ff0000;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.5); /* Sombra roja */
+    position: relative;
+    overflow: hidden;
+    margin-top: 60px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.card-front {
+    background-color: #1e1e1e;
+}
+
+.card-front img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.card-front h3 {
+    color: #ff0000; /* Rojo */
+}
+
+.card-back {
+    background-color: #333;
+    color: #fff;
+    transform: rotateY(180deg);
+}
+
+.card-back h3, .card-back p {
+    margin: 10px 0;
+    color: #ff0000; /* Rojo */
+}
+
+.card-back button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: 1px solid #ff0000; /* Borde rojo */
+    border-radius: 5px;
+    background-color: #ff0000; /* Fondo rojo */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.card-back button:hover {
+    background-color: #cc0000; /* Rojo oscuro */
+    transform: scale(1.05);
+}
+
+.card-back button:active {
+    transform: scale(1);
+}
+
+/* Animación del contorno */
+.card::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid #ff0000; /* Rojo */
+    border-radius: 15px;
+    z-index: -1;
+    animation: rotateBorder 5s linear infinite;
+}
+
+@keyframes rotateBorder {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.cart_img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Estilos futuristas para el modal del carrito */
+.modal-content {
+    background-color: #000;
+    border: 2px solid #ff0000;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.5); /* Sombra roja */
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+}
+
+.modal-header {
+    border-bottom: none;
+    text-align: center;
+}
+
+.modal-title {
+    color: #ff0000; /* Rojo */
+}
+
+.close {
+    color: #ff0000; /* Rojo */
+    opacity: 1;
+}
+
+.close:hover, .close:focus {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.75;
+}
+
+.modal-body {
+    padding: 20px;
+    background-color: #222;
+    color: #fff;
+}
+
+.modal-footer {
+    border-top: none;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-footer .btn-secondary {
+    border: 2px solid #ff0000;
+    background-color: transparent;
+    color: #ff0000;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.modal-footer .btn-secondary:hover {
+    background-color: #ff0000;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #444;
+}
+
+.cart-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+/*----------------Modal de alerts--------------*/
